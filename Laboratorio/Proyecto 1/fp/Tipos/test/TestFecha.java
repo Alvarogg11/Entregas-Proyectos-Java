@@ -11,6 +11,7 @@ public class TestFecha {
         testSumarDias();
         testRestarDias();
         testDiferenciaEnDias();
+        testrestarDiasFechaDada();
     }
 
     public static void testCrearFecha() {
@@ -23,6 +24,8 @@ public class TestFecha {
 
         System.out.println("Fecha: " + fecha);
         System.out.println("LocalDate: " + localDate);
+		System.out.println("                        ");
+
     }
 
     public static void testEsAnioBisiesto() {
@@ -35,6 +38,8 @@ public class TestFecha {
 
         System.out.println("Fecha.esAnioBisiesto(): " + Fecha.esAñoBisiesto(fecha.anyo()));
         System.out.println("LocalDate.isLeapYear(): " + localDate.isLeapYear());
+		System.out.println("                        ");
+
     }
 
     public static void testDiasEnMes() {
@@ -47,6 +52,8 @@ public class TestFecha {
 
         System.out.println("Fecha.diasEnMes(): " + Fecha.diasEnMes(fecha.anyo(), fecha.mes()));
         System.out.println("LocalDate.lengthOfMonth(): " + localDate.lengthOfMonth());
+		System.out.println("                        ");
+
     }
 
     public static void testSumarDias() {
@@ -62,6 +69,8 @@ public class TestFecha {
 
         System.out.println("Fecha.sumardias(10): " + fechaSumada);
         System.out.println("LocalDate.plusDays(10): " + localDateSumada);
+		System.out.println("                        ");
+
     }
 
     public static void testRestarDias() {
@@ -77,6 +86,8 @@ public class TestFecha {
 
         System.out.println("Fecha.restarDias(10): " + fechaRestada);
         System.out.println("LocalDate.minusDays(10): " + localDateRestada);
+		System.out.println("                        ");
+
     }
 
     public static void testDiferenciaEnDias() {
@@ -93,7 +104,16 @@ public class TestFecha {
         Integer diferenciaEnDias = fecha.diferenciaEnDias(fechaSumada);
         long diferenciaEnDiasLocalDate = ChronoUnit.DAYS.between(localDate, localDateSumada);
 
-        System.out.println("Fecha.diferenciaEnDias(fechaSumada): " + diferenciaEnDias);
+        System.out.println("Fecha.diferenciaEnDias(fechaSumada): " + diferenciaEnDias); //aparece negativo pero si se cambia el orden de las fechas ya sale positivo
         System.out.println("ChronoUnit.DAYS.between(localDate, localDateSumada): " + diferenciaEnDiasLocalDate);
+		System.out.println("                        ");
+
+    }
+    //test método defensa 1
+    public static void testrestarDiasFechaDada() {
+        Fecha fecha = Fecha.parse("2024-03-22");
+        int numDias = 11;
+        int[] resultado = fecha.restarDiasFechaDada(fecha, numDias);
+        System.out.println("Fecha restada: " + resultado[0] + "-" + resultado[1] + "-" + resultado[2]);
     }
 }

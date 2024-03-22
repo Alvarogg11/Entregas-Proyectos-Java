@@ -77,6 +77,41 @@ public class Funciones {
 	        }
 	    }
 	    return maxZ;
-	}
 	    
+	}
+    //métodos defensa 1 viernes 22/03 (los test de las funciones están hechos en test funciones
+//primera función, A
+    public static int P2(int n, int k, int i) {
+        if (i >= k + 1) {
+            i = 0; // Valor por defecto de i
+        }
+        int productorio = 1;
+        for (int j = i; j <= k - 2; j++) {
+            productorio *= (n - j);
+        }
+        return productorio;
+    }
+    //segunda función, B
+    public static int C2(int n, int k) {
+        if (n < k + 1) {
+            return 0; // n debe ser mayor o igual a k + 1
+        } 
+            else {
+                int num = factorial(n); // n!
+                int den = factorial(k + 1) * factorial(n - (k + 1)); // (k + 1)! * (n - (k + 1))!
+                int res = num / den;
+                return res;
+            }
+    }
+    //tercera función, C
+    public static double S2(int n, int k){
+        int i = 0;
+        double sumatorio = 0;
+        assert n >= k : "n debe ser mayor o igual que k";
+        assert n >= i : "k debe ser mayor o igual que i";
+        for (i = 0; i < k; i++) {
+            sumatorio += Math.pow(-1, i) * numeroCombinatorio(k, i) * Math.pow((k - i), n);
+        }
+        return  ((factorial(k) / factorial(k+2)) * sumatorio);
+    }
 }

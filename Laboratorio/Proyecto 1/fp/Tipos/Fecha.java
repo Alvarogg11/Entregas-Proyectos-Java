@@ -157,4 +157,13 @@ public record Fecha(Integer anyo,Integer mes, Integer dia) implements Comparable
         int dia = Integer.parseInt(fecha_parts[2]);
         return new Fecha(anyo, mes, dia);
     }
+    //método fecha defensa
+    public int[] restarDiasFechaDada(Fecha fecha, int numDias) {
+        if (numDias > 999) {
+            throw new IllegalArgumentException("El número de días debe tener 3 dígitos como máximo");
+        }
+        Fecha fechaRestada = fecha.restarDias(numDias);
+        int[] resultado = {fechaRestada.dia, fechaRestada.mes, fechaRestada.anyo};
+        return resultado;
+    }
 }
