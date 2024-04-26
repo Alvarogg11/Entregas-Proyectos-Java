@@ -84,5 +84,7 @@ public interface DataFrame {
 	DataFrame addColum(String newColum, List<String> datos);
 	DataFrame addCalculatedColum(String newColum,Function<List<String>,String> f);
 	DataFrame removeColum(String colum);
-	String toString();	      
+	String toString();
+	Map<String, Integer> columIndex();
+
 }
