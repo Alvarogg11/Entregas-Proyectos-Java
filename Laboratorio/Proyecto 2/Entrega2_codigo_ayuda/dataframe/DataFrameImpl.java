@@ -42,7 +42,7 @@ public class DataFrameImpl implements DataFrame {
 	}
 	// --------------------
 	// Métodos de factoría
-	private static DataFrameImpl of(List<String> columNames,Map<String,Integer> columIndex,List<List<String>> rows) {
+	public static DataFrameImpl of(List<String> columNames,Map<String,Integer> columIndex,List<List<String>> rows) {
 		// Se calcula a partir del constructor de manera directa
 		//Poner restricciones
 		return new DataFrameImpl(columNames,columIndex,rows);
@@ -389,6 +389,12 @@ public class DataFrameImpl implements DataFrame {
 		String s = IntStream.range(0, n).boxed().map(i->"_").collect(Collectors.joining(""));
 		return IntStream.range(0, m).boxed().map(i->s).collect(Collectors.joining("|","|","|"));
 	}
-	//
-
+	public Map<String, Integer> columIndex() {
+	    Map<String, Integer> columnIndex = new HashMap<>();
+	    for (int i = 0; i < this.columNames.size(); i++) {
+	        columnIndex.put(this.columNames.get(i), i);
+	    }
+	    return columnIndex;
+	}
+	
 }
